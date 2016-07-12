@@ -43,13 +43,12 @@
           <div class="container">
 
               <div class="logo">
-                  <h2>ExploreLocal</h2>
+                  <h2><a href="#/">ExploreLocal</a></h2>
               </div>
 
-
-              <ul class="navigations nav">
-                  <li ng-repeat="item in items" class="item" ng-click="anchor(item.id)" ><a href="{{item.path}}" tabindex="-1" >{{item.title}}</a></li>
-              </ul>
+              <div  ng-hide="hideCTA" class="ng-hide">
+                <a class="button button-primary" href="#/register">Sign up</a>
+              </div>
 
           </div>
 

@@ -615,7 +615,9 @@ body {
 .menu ul li.active a {  color: #dc1928;}
 .menu .logo { float: left }
 .menu .logo h2 { line-height: 50px; color: #DC1928;  }
-
+.navbar .button { margin-top: 20px; display: none; }
+.navbar {position: fixed;}
+.navbar a:hover {text-decoration: none;}
 
 // strap information about trial
 .trial-strap {
@@ -687,7 +689,7 @@ h4 {
 .introduction {
   text-align: center;
   background: #F9F8F7; 
-  padding: 70px 0px;
+  padding: 70px 0px 70px 0px;
 }
 
 .introduction h1 {
@@ -796,6 +798,8 @@ h4 {
   background: #ffffff;
   padding: 50px 0px; 
   width: 100%;
+  -moz-border-radius: 10px !important;
+  border-radius: 10px !important;
 }
 .register-bg hr {
     border: 0;
@@ -1108,6 +1112,10 @@ h4 {
     text-align: center;
   }
 
+  // register-bg
+  .register-bg {
+    padding: 120px 0px; 
+  }
 
   // main style 
   p, div.panel li {
@@ -1137,6 +1145,7 @@ h4 {
   }
   .menu ul { display: block;}
   .menu .logo h2 { line-height: 80px; }
+  .navbar .button { display: inline-block; }
 
   // strap information about trial
   .trial-strap {
@@ -1154,6 +1163,7 @@ h4 {
 
   // introduction
   .introduction {
+    padding: 120px 0px 70px 0px;
   }
 
 

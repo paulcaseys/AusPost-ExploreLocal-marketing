@@ -49,6 +49,16 @@ angular.module('angularBoilerplateApp')
                 $scope.states.activeItem = $scope.items[i].id;
             }
         }
+
+        // register specific
+        if(path === "#/register"){
+            console.log("hello");
+            $scope.hideCTA = true;
+        } else {
+            $scope.hideCTA = false;
+        }
+
+
     };
 
     // changes page from click
