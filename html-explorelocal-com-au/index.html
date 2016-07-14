@@ -1,0 +1,12 @@
+<!doctype html> <html> <head> <meta charset="utf-8"> <title></title> <meta name="description" content=""> <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– --> <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– --> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/styles.45c2c6d5.css"> </head> <body ng-app="angularBoilerplateApp"> <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]--> <div ng-controller="LoaderCtrl" ng-hide="loader.loaded" class="loading"> Loading... </div> <div class="footer-wrapper"> <div class="ng-cloak"> <nav ng-controller="NavigationCtrl" class="menu navbar"> <div class="container"> <div class="logo"> <h2><a href="#/">ExploreLocal</a></h2> </div> <div ng-hide="hideCTA" class="ng-hide"> <a class="button button-primary" href="#/register">Sign up</a> </div> </div> </nav> <div class="section"> <div ng-view=""></div> </div> </div> <div class="footer-push"> </div> </div> <div class="footer"> <div class="container"> <ul class="nav navbar-nav"> <li>ExploreLocal</li> </ul> </div> </div> <body> <!-- jquery (if it is not already on your page) --> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js" type="text/javascript" charset="utf-8"></script> <!-- cosmos utils --> <script src="http://staging.cosmosis-api.com/resources/js/libs/cosmos/cosmos-image-loader.1.01.js"></script> <script src="http://staging.cosmosis-api.com/resources/js/libs/cosmos/cosmos-data.1.01.js"></script> <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– --> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');</script> <script src="scripts/vendor.04c5e0fd.js"></script> <script src="scripts/scripts.aad752c1.js"></script> </body> </body></html>
