@@ -49,11 +49,11 @@ angular.module('angularBoilerplateApp')
         if(urlStringSplit[1] === "entry"){
             console.log(2);
             $scope.entryId = "entry/"+urlStringSplit[2];
-            console.log($scope.entryId);
+            console.log("bah: "+$scope.entryId);
         } else if(urlStringSplit[2] === "entry") {
             console.log(3);
             $scope.entryId = "entry/"+urlStringSplit[3];
-            console.log($scope.entryId);
+            console.log("bah: "+$scope.entryId);
         }
     }
     
@@ -72,9 +72,9 @@ angular.module('angularBoilerplateApp')
                 $scope.states.activeItem = $scope.items[i].id;
             }
         }
-
-        // register specific
-        if(path === "#/register"){
+        var _urlString = $location.path();
+        var _urlStringSplit = _urlString.split('/');
+        if(_urlStringSplit[1] === "register"){
             console.log("hello");
             $scope.hideCTA = true;
         } else {

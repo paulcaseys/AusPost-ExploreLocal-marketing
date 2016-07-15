@@ -15,7 +15,7 @@ angular.module('angularBoilerplateApp')
     // track pageview on state change
     $window.ga('send', 'pageview', $location.path());
     console.log("google analytics: "+$location.path());
-    
+
     console.log("MainCtrl");
 
 
@@ -34,6 +34,7 @@ angular.module('angularBoilerplateApp')
 
     if(urlStringSplit[1]){
         if(urlStringSplit[1] === "entry"){
+          console.log("hmm: "+urlStringSplit[2]);
             $scope.entryId = "entry/"+urlStringSplit[2];
         }
     }
