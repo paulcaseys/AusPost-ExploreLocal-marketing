@@ -36,6 +36,29 @@ angular.module('angularBoilerplateApp')
         path: '#/register'
     }];
 
+    
+
+    // entrypoint url
+    var urlString = $location.path();
+    var urlStringSplit = urlString.split('/');
+
+    $scope.entryId = "";
+
+    if(urlStringSplit[1] || urlStringSplit[2]){
+        console.log(1);
+        if(urlStringSplit[1] === "entry"){
+            console.log(2);
+            $scope.entryId = "entry/"+urlStringSplit[2];
+            console.log($scope.entryId);
+        } else if(urlStringSplit[2] === "entry") {
+            console.log(3);
+            $scope.entryId = "entry/"+urlStringSplit[3];
+            console.log($scope.entryId);
+        }
+    }
+    
+
+    /**/
     // declare default activeItem
     $scope.states.activeItem = '';
 

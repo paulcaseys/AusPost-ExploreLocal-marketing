@@ -43,11 +43,11 @@
           <div class="container">
 
               <div class="logo">
-                  <h2><a href="#/">ExploreLocal</a></h2>
+                  <h2><a  ng-href="#/{{entryId}}">ExploreLocal</a></h2>
               </div>
 
               <div  ng-hide="hideCTA" class="ng-hide">
-                <a class="button button-primary" href="#/register">More info</a>
+                <a class="button button-primary" ng-href="#/register/{{entryId}}">More info</a>
               </div>
 
           </div>
@@ -70,7 +70,6 @@
     <div class="container">
       
       <ul class="nav navbar-nav">
-        <li><a href="/privacy.html" target="_blank">Privacy Policy</a></li>
         <li>&copy; Explore Local</li>
       </ul>
     
@@ -100,10 +99,9 @@
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
        }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
+       ga('create', 'UA-80818524-1', 'auto');
        ga('send', 'pageview');
     </script>
-
 
 
     <!-- build:js(.) scripts/vendor.js -->

@@ -8,7 +8,13 @@
  * Controller of the angularBoilerplateApp
  */
 angular.module('angularBoilerplateApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $location, $rootScope, $window) {
+    
+    // initialise google analytics
+    $window.ga('create', 'UA-80818524-1', 'auto');
+    // track pageview on state change
+    $window.ga('send', 'pageview', $location.path());
+    console.log("google analytics: "+$location.path());
     
     console.log("MainCtrl");
 
@@ -20,6 +26,17 @@ angular.module('angularBoilerplateApp')
     // declares that the transition in should begin
     $scope.transitionIn = true;
 
+    // entrypoint url
+    var urlString = $location.path();
+    var urlStringSplit = urlString.split('/');
+
+    $scope.entryId = "";
+
+    if(urlStringSplit[1]){
+        if(urlStringSplit[1] === "entry"){
+            $scope.entryId = "entry/"+urlStringSplit[2];
+        }
+    }
 
 
     ///////////////////////////////////

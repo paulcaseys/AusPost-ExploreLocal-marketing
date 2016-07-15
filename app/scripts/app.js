@@ -17,6 +17,9 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+
+ 
+
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -24,22 +27,17 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .when('/waypoint', {
-        templateUrl: 'views/waypoint.html',
-        controller: 'WaypointCtrl',
-        controllerAs: 'waypoint'
-      })
-      .when('/gallery', {
-        templateUrl: 'views/gallery.html',
-        controller: 'GalleryCtrl',
-        controllerAs: 'gallery'
+      .when('/entry/:entryId', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
       })
       .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl',
+        controllerAs: 'register'
+      })
+      .when('/register/entry/:entryId', {
         templateUrl: 'views/register.html',
         controller: 'RegisterCtrl',
         controllerAs: 'register'
@@ -47,4 +45,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
   });
