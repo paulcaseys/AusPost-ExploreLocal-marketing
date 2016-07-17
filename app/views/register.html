@@ -13,7 +13,7 @@
 
                 <div class="top-wrapper">
                 	<p>
-                	    We’re still building our website so we’re not quite ready. To help us make it great, please let us know what’s important to you.
+                	    Stay updated. We’re still building our website so we’re not quite ready. To help us make it great, please let us know what’s important to you.
                 	</p>
 
                     <hr>
@@ -35,6 +35,11 @@
                     _cosmosForm.defineProjectSettings(_cosmosProjectName, _cosmosProjectPassword, true);
                     _cosmosForm.setupForm(_cosmosFormWrapper, {success:formSuccessHandler});
                     
+                    
+                    function formSuccessHandler(){
+                      
+                    }
+
                     // add form
                     var delay=1000; 
 
@@ -45,9 +50,6 @@
                         console.log('added: '+$(".entryId").html());
                     }, delay);
                     
-                    function formSuccessHandler(){
-                      
-                          }
 
                   });
 
