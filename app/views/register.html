@@ -37,8 +37,29 @@
                     
                     
                     function formSuccessHandler(){
-                      
+                        console.log('form added to page');
                     }
+                    
+                    function formCompleteHandler(){
+                        console.log("FFFFFFFFFFFFFFFFFFFFFFFF");
+                        var trackCode = 'CompleteRegistration';
+                        var entryCode = 'organic';
+
+                        var path = document.URL;
+
+                        var splitURL = path.split("/");
+                        console.log(path);
+                        console.log(splitURL);
+
+                        if(path.indexOf("entry") > -1){
+                            entryCode = splitURL[splitURL.length-1];
+                        }
+                        ga('send', 'pageview', entryCode+'/'+trackCode);
+                        console.log("google analytics: "+entryCode+'/'+trackCode);
+                        fbq('track', trackCode);
+                        console.log("FB analytics: "+trackCode+"");
+                    }
+                    /**/
 
                     // add form
                     var delay=1000; 
@@ -47,6 +68,7 @@
                         $(".cosmos-field-xxlarge textarea").val($(".entryId").html());
                         $(".cosmos-field-xxlarge").hide();
                         $(".entryId").hide();
+                        $(".cosmos-item-submit-button").click(function() {formCompleteHandler()});
                         console.log('added: '+$(".entryId").html());
                     }, delay);
                     

@@ -16,8 +16,25 @@ angular.module('angularBoilerplateApp')
 
     $scope.trackActivity = function (){
         // track pageview on state change
-        $window.ga('send', 'pageview', $location.path());
-        console.log("google analytics: "+$location.path());
+        var trackCode = "";
+        var entryCode = "organic";
+        var splitURL = $location.path().split("/");
+
+        if($location.path().indexOf("register") > -1){
+            trackCode = "Lead";
+
+        } else {
+            trackCode = "ViewContent";
+
+        }
+
+        if($location.path().indexOf("entry") > -1){
+            entryCode = splitURL[splitURL.length-1];
+        }
+        $window.ga('send', 'pageview', entryCode+'/'+trackCode);
+        console.log("google analytics: "+entryCode+'/'+trackCode);
+        $window.fbq('track', trackCode);
+        console.log("FB analytics: "+trackCode+"");
     };
 
 
