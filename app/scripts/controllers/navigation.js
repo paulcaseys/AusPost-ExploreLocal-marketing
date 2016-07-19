@@ -8,8 +8,19 @@
  * Controller of the angularBoilerplateApp
  */
 angular.module('angularBoilerplateApp')
-  .controller('NavigationCtrl', function ($scope, $location) {
+  .controller('NavigationCtrl', function ($scope, $location, $rootScope, $window) {
     
+
+    // initialise google analytics
+    $window.ga('create', 'UA-80818524-1', 'auto');
+
+    $scope.trackActivity = function (){
+        // track pageview on state change
+        $window.ga('send', 'pageview', $location.path());
+        console.log("google analytics: "+$location.path());
+    };
+
+
     // Must use a wrapper object, otherwise "activeItem" won't work
     $scope.states = {};
 
@@ -43,20 +54,36 @@ angular.module('angularBoilerplateApp')
     var urlStringSplit = urlString.split('/');
 
     $scope.entryId = "";
+    $scope.entryId = "";
+
+    $scope.homeURL = "";
+    $scope.registerURL = "";
 
     if(urlStringSplit[1] || urlStringSplit[2]){
         console.log(1);
         if(urlStringSplit[1] === "entry"){
             console.log(2);
-            $scope.entryId = "entry/"+urlStringSplit[2];
+            $scope.entryId = "/entry/"+urlStringSplit[2];
             console.log("bah: "+$scope.entryId);
         } else if(urlStringSplit[2] === "entry") {
             console.log(3);
-            $scope.entryId = "entry/"+urlStringSplit[3];
+            $scope.entryId = "/entry/"+urlStringSplit[3];
             console.log("bah: "+$scope.entryId);
         }
     }
+    if($scope.entryId === ""){
+        $scope.homeURL = "#/";
+    } else {
+        $scope.homeURL = "#"+$scope.entryId;
+    }
     
+    $scope.registerURL = "#/register"+$scope.entryId;
+    
+
+
+
+
+    console.log("MainCtrl");
 
     /**/
     // declare default activeItem
@@ -64,6 +91,9 @@ angular.module('angularBoilerplateApp')
 
     // checks which item matches the path
     $scope.changeActiveItem = function(){
+
+        $scope.trackActivity();
+
         var path = "#"+$location.path();
         var lookup = {};
         for (var i = 0, len = $scope.items.length; i < len; i++) {
@@ -95,7 +125,7 @@ angular.module('angularBoilerplateApp')
         $scope.changeActiveItem();
     });
 
-    $scope.changeActiveItem();
+    //$scope.changeActiveItem();
     console.log("NavigationCtrl");
 
 });

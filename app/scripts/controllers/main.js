@@ -8,15 +8,8 @@
  * Controller of the angularBoilerplateApp
  */
 angular.module('angularBoilerplateApp')
-  .controller('MainCtrl', function ($scope, $location, $rootScope, $window) {
+  .controller('MainCtrl', function ($scope, $location) {
     
-    // initialise google analytics
-    $window.ga('create', 'UA-80818524-1', 'auto');
-    // track pageview on state change
-    $window.ga('send', 'pageview', $location.path());
-    console.log("google analytics: "+$location.path());
-
-    console.log("MainCtrl");
 
 
 
@@ -35,7 +28,7 @@ angular.module('angularBoilerplateApp')
     if(urlStringSplit[1]){
         if(urlStringSplit[1] === "entry"){
           console.log("hmm: "+urlStringSplit[2]);
-            $scope.entryId = "entry/"+urlStringSplit[2];
+            $scope.entryId = "/entry/"+urlStringSplit[2];
         }
     }
 
