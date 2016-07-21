@@ -8,29 +8,32 @@
  * Controller of the angularBoilerplateApp
  */
 angular.module('angularBoilerplateApp')
-  .controller('MainCtrl', function ($scope, $location) {
+  .controller('MainCtrl', function ($scope, $location, $rootScope, $window) {
     
+    $scope.openRegistration = function (){
+        $scope.trackActivity('Lead');
+        var win = window.open('https://www.surveymonkey.com/r/7Z59VHR', '_blank');
+        win.focus();
+    };
 
+    $scope.trackActivity = function (trackCode){
+        // track pageview on state change
+        var entryCode = "organic";
+        var splitURL = $location.path().split("/");
 
+        if($location.path().indexOf("entry") > -1){
+            entryCode = splitURL[splitURL.length-1];
+        }
 
-    // body copy example
-    $scope.bodyCopy = "hello world";
+        $window.ga('send', 'pageview', entryCode+'/'+trackCode);
+        console.log("google analytics: "+entryCode+'/'+trackCode);
+        $window.fbq('track', trackCode);
+        console.log("FB analytics: "+trackCode+"");
+    };
 
     // declares that the transition in should begin
     $scope.transitionIn = true;
 
-    // entrypoint url
-    var urlString = $location.path();
-    var urlStringSplit = urlString.split('/');
-
-    $scope.entryId = "";
-
-    if(urlStringSplit[1]){
-        if(urlStringSplit[1] === "entry"){
-          console.log("hmm: "+urlStringSplit[2]);
-            $scope.entryId = "/entry/"+urlStringSplit[2];
-        }
-    }
 
 
     ///////////////////////////////////

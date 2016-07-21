@@ -42,7 +42,6 @@
                     }
                     
                     function formCompleteHandler(){
-                        console.log("FFFFFFFFFFFFFFFFFFFFFFFF");
                         var trackCode = 'CompleteRegistration';
                         var entryCode = 'organic';
 
@@ -68,6 +67,8 @@
                     setTimeout(function() {
                         $(".cosmos-field-xxlarge textarea").val($(".entryId").html());
                         $(".cosmos-field-xxlarge").hide();
+                        
+                        /*
                         $(".cosmos-field-small").hide();
                         $(".cosmos-field-small input[name*='detail_EmailAddress']").val("null@null.com");
                         
@@ -77,6 +78,8 @@
                         });
 
                         $(".tc").hide();
+                        */
+                       
                         $(".entryId").hide();
                         $(".cosmos-item-submit-button").click(function() {formCompleteHandler()});
                         console.log('added: '+$(".entryId").html());
