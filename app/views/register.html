@@ -20,6 +20,7 @@
                 </div>
                 <span class="entryId">{{entryId}}</span>
 
+
                 <div id="cosmos-form-wrapper">Loading form...</div>
 
                 <script type="text/javascript">
@@ -67,6 +68,15 @@
                     setTimeout(function() {
                         $(".cosmos-field-xxlarge textarea").val($(".entryId").html());
                         $(".cosmos-field-xxlarge").hide();
+                        $(".cosmos-field-small").hide();
+                        $(".cosmos-field-small input[name*='detail_EmailAddress']").val("null@null.com");
+                        
+                        $('h2').each(function() {
+                            var text = $(this).text();
+                            $(this).text(text.replace('Keep updated! Want to help us with our research? If so, please leave your contact details here and we’ll contact you about setting up an interview.', '')); 
+                        });
+
+                        $(".tc").hide();
                         $(".entryId").hide();
                         $(".cosmos-item-submit-button").click(function() {formCompleteHandler()});
                         console.log('added: '+$(".entryId").html());
